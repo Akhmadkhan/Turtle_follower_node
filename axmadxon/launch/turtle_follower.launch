@@ -1,0 +1,16 @@
+<launch>
+  <!-- Запуск первой черепашки -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtle1" respawn="true" output="screen" />
+
+  <!-- Запуск второй черепашки -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtle2" respawn="true" output="screen" />
+
+  <!-- Запуск turtle_teleop_key для управления первой черепашкой -->
+  <node pkg="turtlesim" type="turtle_teleop_key" name="turtle_teleop_key" respawn="true" output="screen" />
+
+  <!-- Запуск вашей ноды turtle_follower -->
+  <node pkg="axmadxon" type="turtle_follower_node.py" name="turtle_follower" output="screen">
+    <param name="~follower_speed" value="2.0" /> <!-- Установка параметра скорости преследователя -->
+  </node>
+</launch>
+
